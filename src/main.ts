@@ -40,6 +40,11 @@ import './style.css'
 *       Comparison - < > <= >= === !==
 *
 *   Falsy / truthy
+*       false
+*       0
+*       NaN
+*       ""
+*       null
 *
 *
 *
@@ -62,3 +67,8 @@ import './style.css'
 let helloDark = "Hello darkness my old friend"
 console.log(helloDark)
 
+function helloD() {
+    console.log(helloDark)
+}
+
+helloD();
