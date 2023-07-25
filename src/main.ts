@@ -25,7 +25,17 @@ import './style.css'
 *       user.age
 *       user.email = "email@email.com";
 *       user["name"]
+*
+*   function hello(name: string): string{
+*       return "Hellp " + name;
+*   }
+*
+*   const hello = (name: string) => {
+*       return "Hello " + name;
+*   }
+*
 * */
 
 let helloDark = "Hello darkness my old friend"
 console.log(helloDark)
+
