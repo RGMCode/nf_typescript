@@ -8,7 +8,7 @@ import './style.css'
 *       bigint
 *   string = "Hello darkness my old friend" or 'Hello darkness my old friend'
 *   Date - new Date()
-*   Object
+*   object
 *       undefindes
 *       unkown
 *       void
@@ -34,6 +34,29 @@ import './style.css'
 *       return "Hello " + name;
 *   }
 *
+*   Operatoren
+*       boolean - && || !
+*       number - +, -, *, /
+*       Comparison - < > <= >= === !==
+*
+*   Falsy / truthy
+*
+*
+*
+*   Control flow:
+*       if(condition){...} else if (condition){...} else{...}
+*       for(let i = 0; i < list.length; i++){...}
+*       *for (let x of list){...} - keine wirkliche verwendung
+*       *for (let x in list){...} - keine wirkliche verwendung
+*
+*
+*
+*
+*   NICHT VERWENDEN / DO NOT USE:   *
+*   Boolean                         *
+*   Number                          *
+*   String                          *
+*   Object                          *
 * */
 
 let helloDark = "Hello darkness my old friend"
