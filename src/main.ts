@@ -55,6 +55,9 @@ import './style.css'
 *       *for (let x in list){...} - keine wirkliche verwendung
 *
 *
+*   Error
+*   try{...} catch(e: Error){...}
+*   try{throw new Error("error message")} catch(e: Error){...}
 *
 *
 *   NICHT VERWENDEN / DO NOT USE:   *
@@ -64,11 +67,92 @@ import './style.css'
 *   Object                          *
 * */
 
-let helloDark = "Hello darkness my old friend"
-console.log(helloDark)
+    type Car = {
+        id: string;
+        brand: string;
+        model: string;
+    };
 
-function helloD() {
-    console.log(helloDark)
-}
+    let cars: Car[] = [];
 
-helloD();
+    function addCar(car: Car) {
+        cars.push(car);
+    }
+
+    function getCars() {
+        return cars;
+    }
+
+    function getCarById(id: string) {
+        for (let i = 0; i < cars.length; i++) {
+            if (cars[i].id === id) {
+                return cars[i];
+            }
+        }
+
+        return null;
+    }
+
+    function updateCarByid(id: string, car: Car) {
+        for (let i = 0; i < cars.length; i++) {
+            if (cars[i].id === id) {
+                cars[i] = car;
+            }
+        }
+    }
+
+    function deleteCarById(id: string) {
+        let index: number|null = null;
+        for (let i = 0; i < cars.length; i++) {
+            if (cars[i].id === id) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index !== null) {
+            cars.splice(index, 1);
+        }
+    }
+
+    addCar({ id: "1", brand: "VW", model: "Golf" });
+    console.log("Cars after add", cars);
+
+    console.log("Cars with get cars", getCars());
+
+    console.log("Get car by id", getCarById("1"));
+    console.log("Get car by id", getCarById("5"));
+
+    updateCarByid("1", { id: "1", brand: "BMW", model: "3er"});
+    console.log("Cars after update", cars);
+
+    deleteCarById("1");
+    console.log("Cars after delete", cars);
+
+    function getCarByIdFunctional(id: string) {
+        return cars.find(x => x.id === id);
+    }
+
+    function updateCarByIdFunctional(id: string, car: Car) {
+        cars = cars.map(x => x.id === id ? car : x);
+    }
+
+    function deleteCarByIdFunctional(id: string) {
+        cars = cars.filter(x => x.id !== id);
+    }
+
+    // [1,2,3,4].reduce((sum, x) => sum + x, 0);
+
+    addCar({ id: "1", brand: "VW", model: "Golf" });
+    console.log("Cars after add", cars);
+
+    console.log("Cars with get cars", getCars());
+
+    console.log("Get car by id", getCarByIdFunctional("1"));
+    console.log("Get car by id", getCarByIdFunctional("5"));
+
+    updateCarByIdFunctional("1", { id: "1", brand: "BMW", model: "3er"});
+    console.log("Cars after update", cars);
+
+    deleteCarByIdFunctional("1");
+    console.log("Cars after delete", cars);
